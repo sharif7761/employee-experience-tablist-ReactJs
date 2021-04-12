@@ -20,6 +20,8 @@ function App() {
     fetchJobs()
   },[])
 
+
+
   if(loading) {
     return (
         <section className='section loading'>
@@ -36,7 +38,17 @@ function App() {
           <div className='underline'></div>
         </div>
         <div className='jobs-center'>
-
+            <div className='btn-container'>
+                {
+                    jobs.map((item, index) => {
+                        return(
+                            <button key={item.id} onClick={() => setValue(index)}>
+                                {item.company}
+                            </button>
+                        )
+                    })
+                }
+            </div>
         </div>
         <article className='job-info'>
           <h3>{title}</h3>
